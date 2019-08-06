@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 // ReSharper disable once CheckNamespace
@@ -33,6 +34,12 @@ namespace Common
             }
             Assert.IsNotNull(expectedEx, PrefixKo("没有发现应该抛出的异常: " + typeof(T).Name));
         }
+
+        public static void ShouldAsyncThrows<T>(Func<Task> task) where T : Exception
+        {
+            ShouldThrows<T>(() => AsyncHelper.RunSync(task));
+        }
+
         public static string PrefixOk(string value)
         {
             return OkMark + " " + value;
