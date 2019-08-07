@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="SimpleDaemonSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleProcessRunnerSpec.cs" />
     <Compile Include="_Helpers\AssertHelper.cs" />
     <Compile Include="_Helpers\AsyncHelper.cs" />
     <Compile Include="_Helpers\TestExtensions.cs" />
