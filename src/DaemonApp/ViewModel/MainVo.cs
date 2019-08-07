@@ -56,7 +56,7 @@ namespace DaemonApp.ViewModel
 
             return _fooClientDaemon.TryStart();
         }
-
+        
         public Task<MessageResult> TryStop(SimpleProcessInfo info)
         {
             if (_fooClientDaemon == null)
@@ -66,31 +66,6 @@ namespace DaemonApp.ViewModel
 
             _fooClientDaemon.Runner.TryStop();
             return _fooClientDaemon.TryStop();
-        }
-    }
-
-    public class FooClientDaemon
-    {
-        public FooClientDaemon(ISimpleDaemon daemon, SimpleProcessRunner runner)
-        {
-            Daemon = daemon;
-            Runner = runner;
-        }
-
-        public ISimpleDaemon Daemon { get; set; }
-
-        public SimpleProcessRunner Runner { get; set; }
-
-        public Task<MessageResult> TryStart()
-        {
-            return Daemon.StartTask(TimeSpan.FromSeconds(3), () => Runner.TryStart(true));
-        }
-
-        public async Task<MessageResult> TryStop()
-        {
-            var messageResult = await Daemon.Stop();
-            await Runner.TryStop();
-            return messageResult;
         }
     }
 }

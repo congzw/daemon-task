@@ -14,6 +14,7 @@ namespace Common
         Task<MessageResult> Stop();
     }
 
+
     public class SimpleDaemon : ISimpleDaemon
     {
         public SimpleDaemon()

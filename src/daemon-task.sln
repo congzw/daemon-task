@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaemonApp", "DaemonApp\Daem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooClient", "FooClient\FooClient.csproj", "{561EA73E-C5BF-46D0-9F93-623A0CB7F300}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooClientWs", "FooClientWs\FooClientWs.csproj", "{3DB09F68-A669-44CB-84F1-24D06EB3821A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{561EA73E-C5BF-46D0-9F93-623A0CB7F300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{561EA73E-C5BF-46D0-9F93-623A0CB7F300}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{561EA73E-C5BF-46D0-9F93-623A0CB7F300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB09F68-A669-44CB-84F1-24D06EB3821A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB09F68-A669-44CB-84F1-24D06EB3821A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB09F68-A669-44CB-84F1-24D06EB3821A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB09F68-A669-44CB-84F1-24D06EB3821A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A1607B92-FF53-47DD-9EAC-63737093A6DC} = {5139038E-6889-49F2-AA5F-EAC180698520}
 		{561EA73E-C5BF-46D0-9F93-623A0CB7F300} = {5139038E-6889-49F2-AA5F-EAC180698520}
+		{3DB09F68-A669-44CB-84F1-24D06EB3821A} = {5139038E-6889-49F2-AA5F-EAC180698520}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C15D5D5A-B1FB-4C85-954D-9F6A8F3D52F7}
