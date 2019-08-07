@@ -5,8 +5,4 @@
     <RootNamespace>Common</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="WindowsServices\" />
-  </ItemGroup>
-
 </Project>

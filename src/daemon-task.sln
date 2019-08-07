@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaemonTasks", "DaemonTasks\DaemonTasks.csproj", "{AE306110-0388-4263-B9C1-48557773BA4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaemonTasks", "DaemonTasks\DaemonTasks.csproj", "{AE306110-0388-4263-B9C1-48557773BA4C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaemonTasks.UnitTest", "DaemonTasks.UnitTest\DaemonTasks.UnitTest.csproj", "{50A51334-A185-43EC-8296-E18F3A2E5429}"
 EndProject
@@ -11,6 +11,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		..\readme.md = ..\readme.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{5139038E-6889-49F2-AA5F-EAC180698520}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaemonApp", "DaemonApp\DaemonApp.csproj", "{A1607B92-FF53-47DD-9EAC-63737093A6DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooClient", "FooClient\FooClient.csproj", "{561EA73E-C5BF-46D0-9F93-623A0CB7F300}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +32,21 @@ Global
 		{50A51334-A185-43EC-8296-E18F3A2E5429}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50A51334-A185-43EC-8296-E18F3A2E5429}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50A51334-A185-43EC-8296-E18F3A2E5429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1607B92-FF53-47DD-9EAC-63737093A6DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1607B92-FF53-47DD-9EAC-63737093A6DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1607B92-FF53-47DD-9EAC-63737093A6DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1607B92-FF53-47DD-9EAC-63737093A6DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{561EA73E-C5BF-46D0-9F93-623A0CB7F300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{561EA73E-C5BF-46D0-9F93-623A0CB7F300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{561EA73E-C5BF-46D0-9F93-623A0CB7F300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{561EA73E-C5BF-46D0-9F93-623A0CB7F300}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1607B92-FF53-47DD-9EAC-63737093A6DC} = {5139038E-6889-49F2-AA5F-EAC180698520}
+		{561EA73E-C5BF-46D0-9F93-623A0CB7F300} = {5139038E-6889-49F2-AA5F-EAC180698520}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C15D5D5A-B1FB-4C85-954D-9F6A8F3D52F7}

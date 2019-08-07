@@ -36,6 +36,26 @@ namespace Common
             message = "OK";
             return true;
         }
+
+        public static SimpleProcessInfo Create(string processName, string exePath, string exeArgs, bool validateFailThrows = false)
+        {
+            var simpleProcessInfo = new SimpleProcessInfo()
+            {
+                ProcessName = processName,
+                ExePath = exePath,
+                ExeArgs = exeArgs
+            };
+            if (validateFailThrows)
+            {
+                var success = Validate(simpleProcessInfo, out var message);
+                if (!success)
+                {
+                    throw new ArgumentException(string.Format("bad create args: processName:{0}, exePath:{1}, exeArgs:{2}", processName, exePath, exeArgs));
+                }
+            }
+
+            return simpleProcessInfo;
+        }
     }
 
     public interface ISimpleProcess
@@ -189,7 +209,7 @@ namespace Common
 
         public ISimpleProcess Process { get; set; }
 
-        public Task<MessageResult> TryStart()
+        public Task<MessageResult> TryStart(bool failThrows = false)
         {
             return Task.Run(() =>
             {
@@ -210,12 +230,16 @@ namespace Common
                 catch (Exception ex)
                 {
                     Log.LogEx(ex, "process start ex!");
+                    if (failThrows)
+                    {
+                        throw;
+                    }
                     return MessageResult.CreateTask(false, "Process start failed: " + Process.Info.ProcessName);
                 }
             });
         }
 
-        public Task<MessageResult> TryStop()
+        public Task<MessageResult> TryStop(bool failThrows = false)
         {
             var isRunning = Process.IsRunning();
             Log.LogInfo("process is running? " + isRunning);
@@ -233,6 +257,10 @@ namespace Common
             catch (Exception ex)
             {
                 Log.LogEx(ex, "process stop ex!");
+                if (failThrows)
+                {
+                    throw;
+                }
                 return MessageResult.CreateTask(false, "Process stop failed: " + Process.Info.ProcessName);
             }
         }
