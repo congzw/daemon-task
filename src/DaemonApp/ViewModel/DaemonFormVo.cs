@@ -25,6 +25,11 @@ namespace DaemonApp.ViewModel
             Config = await simpleConfigFile.LoadDaemonConfig().ConfigureAwait(false);
         }
 
+        public MessageResult TryGetStatus()
+        {
+            return AppendLogsAndResult(true, "ToDo");
+        }
+
         public MessageResult TryInstall()
         {
             return AppendLogsAndResult(true, "ToDo");

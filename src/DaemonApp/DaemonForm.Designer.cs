@@ -31,10 +31,13 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnStop = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtConfig = new System.Windows.Forms.TextBox();
             this.txtMessage = new System.Windows.Forms.TextBox();
-            this.btnStop = new System.Windows.Forms.Button();
+            this.btnGetStatus = new System.Windows.Forms.Button();
+            this.btnUninstall = new System.Windows.Forms.Button();
+            this.btnInstall = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -66,6 +69,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnGetStatus);
+            this.groupBox1.Controls.Add(this.btnUninstall);
+            this.groupBox1.Controls.Add(this.btnInstall);
             this.groupBox1.Controls.Add(this.btnStop);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.btnStart);
@@ -75,6 +81,17 @@
             this.groupBox1.Size = new System.Drawing.Size(800, 43);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStop.Location = new System.Drawing.Point(596, 14);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(96, 23);
+            this.btnStop.TabIndex = 31;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // splitContainer1
             // 
@@ -112,16 +129,38 @@
             this.txtMessage.Size = new System.Drawing.Size(800, 241);
             this.txtMessage.TabIndex = 24;
             // 
-            // btnStop
+            // btnGetStatus
             // 
-            this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStop.Location = new System.Drawing.Point(596, 14);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(96, 23);
-            this.btnStop.TabIndex = 31;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.btnGetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGetStatus.Location = new System.Drawing.Point(251, 13);
+            this.btnGetStatus.Name = "btnGetStatus";
+            this.btnGetStatus.Size = new System.Drawing.Size(75, 23);
+            this.btnGetStatus.TabIndex = 34;
+            this.btnGetStatus.Text = "GetStatus";
+            this.btnGetStatus.UseVisualStyleBackColor = true;
+            this.btnGetStatus.Click += new System.EventHandler(this.btnGetStatus_Click);
+            // 
+            // btnUninstall
+            // 
+            this.btnUninstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUninstall.Location = new System.Drawing.Point(413, 14);
+            this.btnUninstall.Name = "btnUninstall";
+            this.btnUninstall.Size = new System.Drawing.Size(75, 23);
+            this.btnUninstall.TabIndex = 33;
+            this.btnUninstall.Text = "Uninstall";
+            this.btnUninstall.UseVisualStyleBackColor = true;
+            this.btnUninstall.Click += new System.EventHandler(this.btnUninstall_Click);
+            // 
+            // btnInstall
+            // 
+            this.btnInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInstall.Location = new System.Drawing.Point(332, 14);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.Size = new System.Drawing.Size(75, 23);
+            this.btnInstall.TabIndex = 32;
+            this.btnInstall.Text = "Install";
+            this.btnInstall.UseVisualStyleBackColor = true;
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
             // DaemonForm
             // 
@@ -152,5 +191,8 @@
         private System.Windows.Forms.TextBox txtConfig;
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnGetStatus;
+        private System.Windows.Forms.Button btnUninstall;
+        private System.Windows.Forms.Button btnInstall;
     }
 }

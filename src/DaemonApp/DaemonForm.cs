@@ -39,6 +39,22 @@ namespace DaemonApp
             await Vo.LoadConfig();
             this.txtConfig.Text = Vo.Config.ToJson(true);
         }
+        private void btnGetStatus_Click(object sender, EventArgs e)
+        {
+            Vo.TryGetStatus();
+        }
+
+        private void btnInstall_Click(object sender, EventArgs e)
+        {
+            var messageResult = Vo.TryInstall();
+            MessageBox.Show(messageResult.Message);
+        }
+
+        private void btnUninstall_Click(object sender, EventArgs e)
+        {
+            var messageResult = Vo.TryUninstall();
+            MessageBox.Show(messageResult.Message);
+        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -56,5 +72,6 @@ namespace DaemonApp
         {
             this.txtMessage.Clear();
         }
+
     }
 }
