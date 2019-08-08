@@ -51,12 +51,12 @@ namespace Common
 
     public static class SimpleLogExtensions
     {
-        public static void LogInfo(this ISimpleLog simpleLog, string message)
+        public static void LogInfo(this ISimpleLog simpleLog, object message)
         {
             simpleLog.Log(message, SimpleLogLevel.Information);
         }
 
-        public static void LogEx(this ISimpleLog simpleLog, Exception ex, string message = null)
+        public static void LogEx(this ISimpleLog simpleLog, Exception ex, object message = null)
         {
             var logMessage = string.Format("{0} => {1}", message ?? ex.Message, ex.StackTrace);
             simpleLog.Log(logMessage, SimpleLogLevel.Error);

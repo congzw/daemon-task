@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace DaemonApp.Libs
 {
@@ -33,10 +34,10 @@ namespace DaemonApp.Libs
                 return;
             }
 
-            string value = string.Format("{0} \r\n", obj.Message);
+            string value = string.Format("{0}{1}", obj.Message, Environment.NewLine);
             if (WithPrefix)
             {
-                value = obj.DateTimeEventOccurred + ": " + value;
+                value = obj.DateTimeEventOccurred.ToString("yyyy-MM-dd HH:mm:ss:fff") + " => " + value;
             }
             var invoker = GetInvoker();
             if (invoker.InvokeRequired)

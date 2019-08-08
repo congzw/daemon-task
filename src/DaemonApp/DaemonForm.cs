@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Windows.Forms;
 using Common;
+using DaemonApp.Libs;
 using DaemonApp.ViewModel;
 
 namespace DaemonApp
 {
-    public partial class DaemonForm : Form
+    public partial class DaemonForm : AsyncForm
     {
         public DaemonForm()
         {
             InitializeComponent();
             MyInitializeComponent();
+        }
+        protected override Control GetInvoker()
+        {
+            return this.txtMessage;
+        }
+        public override void ShowCallbackMessage(string value)
+        {
+            this.txtMessage.AppendText(value);
         }
 
         public DaemonFormVo Vo { get; set; }
