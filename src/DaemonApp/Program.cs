@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Principal;
 using System.Windows.Forms;
 using Common;
 using DaemonApp.Libs;
@@ -20,6 +21,16 @@ namespace DaemonApp
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var isAdministrator = IsAdministrator();
+            if (!isAdministrator)
+            {
+                var message = string.Format("{0}{1}{2}", "服务的安装、卸载需要管理员身份！", Environment.NewLine,
+                    "请尝试使用右键，然后以管理员身份运行此程序！");
+                MessageBox.Show(message);
+                return;
+            }
+
             var isDaemonForm = IsDaemonForm();
             if (isDaemonForm)
             {
@@ -29,6 +40,14 @@ namespace DaemonApp
             {
                 Application.Run(new MainForm());
             }
+
+        }
+
+        private static bool IsAdministrator()
+        {
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
         private static bool IsDaemonForm()

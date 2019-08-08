@@ -2,12 +2,13 @@
 
 namespace Common.WindowsServices
 {
-    public interface ISimpleWsController
+    public interface ISimpleServiceController
     {
         string ServiceName { get; set; }
         string DisplayName { get; set; }
         string ExePath { get; set; }
 
+        string TryGetStatus();
         string GetServiceState();
         MessageResult TryInstall();
         MessageResult TryUninstall();
@@ -15,9 +16,9 @@ namespace Common.WindowsServices
         MessageResult TryStop();
     }
 
-    public class SimpleWsController : ISimpleWsController
+    public class SimpleServiceController : ISimpleServiceController
     {
-        public SimpleWsController(string exePath, string serviceName, string displayName = null)
+        public SimpleServiceController(string exePath, string serviceName, string displayName = null)
         {
             if (exePath == null)
             {
@@ -42,6 +43,11 @@ namespace Common.WindowsServices
         public string ServiceName { get; set; }
         public string DisplayName { get; set; }
         public string ExePath { get; set; }
+
+        public string TryGetStatus()
+        {
+            throw new NotImplementedException();
+        }
 
         public string GetServiceState()
         {
@@ -161,9 +167,9 @@ namespace Common.WindowsServices
 
         #region for easy use
 
-        public static SimpleWsController Create(string exePath, string serviceName, string displayName = null)
+        public static SimpleServiceController Create(string exePath, string serviceName, string displayName = null)
         {
-            return new SimpleWsController(exePath, serviceName, displayName);
+            return new SimpleServiceController(exePath, serviceName, displayName);
         }
 
         #endregion
