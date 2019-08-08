@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 
@@ -116,6 +117,13 @@ namespace Common.WindowsServices
 
         public static void Install(string serviceName, string displayName, string fileName)
         {
+            //fix bugs for path!
+            var fullPath = Path.GetFullPath(fileName);
+            if (!File.Exists(fullPath))
+            {
+                throw new ArgumentException("file not exist: " + fileName);
+            }
+
             IntPtr scm = OpenSCManager(ScmAccessRights.AllAccess);
 
             try
@@ -123,7 +131,7 @@ namespace Common.WindowsServices
                 IntPtr service = OpenService(scm, serviceName, ServiceAccessRights.AllAccess);
 
                 if (service == IntPtr.Zero)
-                    service = CreateService(scm, serviceName, displayName, ServiceAccessRights.AllAccess, SERVICE_WIN32_OWN_PROCESS, ServiceBootFlag.AutoStart, ServiceError.Normal, fileName, null, IntPtr.Zero, null, null, null);
+                    service = CreateService(scm, serviceName, displayName, ServiceAccessRights.AllAccess, SERVICE_WIN32_OWN_PROCESS, ServiceBootFlag.AutoStart, ServiceError.Normal, fullPath, null, IntPtr.Zero, null, null, null);
 
                 if (service == IntPtr.Zero)
                     throw new ApplicationException("Failed to install service.");
@@ -145,6 +153,13 @@ namespace Common.WindowsServices
 
         public static void InstallAndStart(string serviceName, string displayName, string fileName)
         {
+            //fix bugs for path!
+            var fullPath = Path.GetFullPath(fileName);
+            if (!File.Exists(fullPath))
+            {
+                throw new ArgumentException("file not exist: " + fileName);
+            }
+
             IntPtr scm = OpenSCManager(ScmAccessRights.AllAccess);
 
             try
@@ -152,7 +167,7 @@ namespace Common.WindowsServices
                 IntPtr service = OpenService(scm, serviceName, ServiceAccessRights.AllAccess);
 
                 if (service == IntPtr.Zero)
-                    service = CreateService(scm, serviceName, displayName, ServiceAccessRights.AllAccess, SERVICE_WIN32_OWN_PROCESS, ServiceBootFlag.AutoStart, ServiceError.Normal, fileName, null, IntPtr.Zero, null, null, null);
+                    service = CreateService(scm, serviceName, displayName, ServiceAccessRights.AllAccess, SERVICE_WIN32_OWN_PROCESS, ServiceBootFlag.AutoStart, ServiceError.Normal, fullPath, null, IntPtr.Zero, null, null, null);
 
                 if (service == IntPtr.Zero)
                     throw new ApplicationException("Failed to install service.");

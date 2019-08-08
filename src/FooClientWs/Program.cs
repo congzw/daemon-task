@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceProcess;
+using FooClientWs.Services;
 
 namespace FooClientWs
 {
@@ -14,12 +10,11 @@ namespace FooClientWs
         /// </summary>
         static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            var servicesToRun = new ServiceBase[]
             {
-                new FooClientWs()
+                new MockService()
             };
-            ServiceBase.Run(ServicesToRun);
+            ServiceBase.Run(servicesToRun);
         }
     }
 }

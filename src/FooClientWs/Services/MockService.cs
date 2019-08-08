@@ -4,11 +4,12 @@ using Common;
 
 namespace FooClientWs.Services
 {
-    partial class MockService : ServiceBase
+    public partial class MockService : ServiceBase
     {
         public MockService()
         {
             InitializeComponent();
+            this.ServiceName = "MockService";
         }
         
         private ISimpleLog _log;

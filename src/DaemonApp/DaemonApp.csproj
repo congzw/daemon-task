@@ -116,6 +116,10 @@
       <Project>{ae306110-0388-4263-b9c1-48557773ba4c}</Project>
       <Name>DaemonTasks</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FooClientWs\FooClientWs.csproj">
+      <Project>{3db09f68-a669-44cb-84f1-24d06eb3821a}</Project>
+      <Name>FooClientWs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FooClient\FooClient.csproj">
       <Project>{561ea73e-c5bf-46d0-9f93-623a0cb7f300}</Project>
       <Name>FooClient</Name>
