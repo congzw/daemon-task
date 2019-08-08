@@ -76,12 +76,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\DaemonConfigFileExtensions.cs" />
+    <Compile Include="ViewModel\MyConfigFileExtensions.cs" />
     <Compile Include="ViewModel\DaemonFormVo.cs" />
     <Compile Include="ViewModel\FooClientDaemon.cs" />
     <Compile Include="ViewModel\FooWsDaemon.cs" />
     <Compile Include="ViewModel\MainVo.cs" />
-    <Compile Include="ViewModel\DaemonConfig.cs" />
+    <Compile Include="ViewModel\MyConfig.cs" />
     <EmbeddedResource Include="DaemonForm.resx">
       <DependentUpon>DaemonForm.cs</DependentUpon>
     </EmbeddedResource>

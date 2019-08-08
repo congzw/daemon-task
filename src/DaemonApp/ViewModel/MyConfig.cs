@@ -4,9 +4,9 @@ using Common;
 
 namespace DaemonApp.ViewModel
 {
-    public class DaemonConfig : SimpleConfig
+    public class MyConfig : SimpleConfig
     {
-        public DaemonConfig()
+        public MyConfig()
         {
             ProcessInfos = new List<SimpleProcessInfo>();
             EntryForm = "DaemonForm";
@@ -18,7 +18,16 @@ namespace DaemonApp.ViewModel
         {
             return "DaemonForm".Equals(EntryForm, StringComparison.OrdinalIgnoreCase);
         }
+        
+        public WindowServiceInfo ServiceInfo { get; set; }
 
         public IList<SimpleProcessInfo> ProcessInfos { get; set; }
+    }
+
+    public class WindowServiceInfo
+    {
+        public string ServiceName { get; set; }
+        public string ServicePath { get; set; }
+        public string ServiceFriendlyName { get; set; }
     }
 }

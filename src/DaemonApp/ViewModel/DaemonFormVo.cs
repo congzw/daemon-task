@@ -5,7 +5,7 @@ namespace DaemonApp.ViewModel
 {
     public class DaemonFormVo
     {
-        public DaemonConfig Config { get; set; }
+        public MyConfig Config { get; set; }
 
         public async Task LoadConfig()
         {
