@@ -11,6 +11,7 @@ namespace DaemonApp.ViewModel
             if (config == null)
             {
                 config = new DaemonConfig();
+                config.ProcessInfos.Add(new SimpleProcessInfo() { ProcessName = "FooClient", ExePath = "FooClient.exe", ExeArgs = null });
                 await simpleConfigFile.SaveFile(config).ConfigureAwait(false);
             }
             return config;

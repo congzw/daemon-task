@@ -28,75 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.txtConfig = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnProcess = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.txtConfig = new System.Windows.Forms.TextBox();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtMessage
-            // 
-            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMessage.Location = new System.Drawing.Point(12, 106);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(776, 303);
-            this.txtMessage.TabIndex = 24;
-            // 
-            // txtConfig
-            // 
-            this.txtConfig.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtConfig.Location = new System.Drawing.Point(12, 12);
-            this.txtConfig.Multiline = true;
-            this.txtConfig.Name = "txtConfig";
-            this.txtConfig.Size = new System.Drawing.Size(776, 88);
-            this.txtConfig.TabIndex = 27;
             // 
             // btnClear
             // 
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Location = new System.Drawing.Point(590, 415);
+            this.btnClear.Location = new System.Drawing.Point(599, 14);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(96, 23);
             this.btnClear.TabIndex = 30;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnProcess
             // 
             this.btnProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProcess.Location = new System.Drawing.Point(692, 415);
+            this.btnProcess.Location = new System.Drawing.Point(698, 14);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(96, 23);
             this.btnProcess.TabIndex = 29;
             this.btnProcess.Text = "Start";
             this.btnProcess.UseVisualStyleBackColor = true;
+            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnClear);
+            this.groupBox1.Controls.Add(this.btnProcess);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Location = new System.Drawing.Point(0, 407);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(800, 43);
+            this.groupBox1.TabIndex = 32;
+            this.groupBox1.TabStop = false;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.txtConfig);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.txtMessage);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 407);
+            this.splitContainer1.SplitterDistance = 162;
+            this.splitContainer1.TabIndex = 33;
+            // 
+            // txtConfig
+            // 
+            this.txtConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtConfig.Location = new System.Drawing.Point(0, 0);
+            this.txtConfig.Multiline = true;
+            this.txtConfig.Name = "txtConfig";
+            this.txtConfig.Size = new System.Drawing.Size(800, 162);
+            this.txtConfig.TabIndex = 27;
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessage.Location = new System.Drawing.Point(0, 0);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(800, 241);
+            this.txtMessage.TabIndex = 24;
             // 
             // DaemonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnProcess);
-            this.Controls.Add(this.txtConfig);
-            this.Controls.Add(this.txtMessage);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.groupBox1);
             this.Name = "DaemonForm";
             this.Text = "DaemonForm";
             this.Load += new System.EventHandler(this.DaemonForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtMessage;
-        private System.Windows.Forms.TextBox txtConfig;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnProcess;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TextBox txtConfig;
+        private System.Windows.Forms.TextBox txtMessage;
     }
 }

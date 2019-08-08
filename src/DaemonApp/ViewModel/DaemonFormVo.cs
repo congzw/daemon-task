@@ -18,7 +18,7 @@ namespace DaemonApp.ViewModel
             if (simpleConfig == null)
             {
                 simpleConfig = new DaemonConfig();
-                //simpleConfig.AddOrUpdateProcessInfos(new List<SimpleProcessInfo>());
+                simpleConfig.ProcessInfos.Add(new SimpleProcessInfo(){ProcessName = "FooClient", ExePath = "FooClient.exe", ExeArgs = null});
                 await simpleConfigFile.SaveFile(simpleConfig).ConfigureAwait(false);
             }
             return simpleConfig;

@@ -17,9 +17,9 @@ namespace DaemonApp
 
         private void MyInitializeComponent()
         {
-            this.txtConfig.Enabled = false;
+            //this.txtConfig.Enabled = false;
+            //this.txtMessage.Enabled = false;
             this.txtConfig.ScrollBars = ScrollBars.Vertical;
-            this.txtMessage.Enabled = false;
             this.txtMessage.ScrollBars = ScrollBars.Vertical;
 
             Vo = new DaemonFormVo();
@@ -29,6 +29,16 @@ namespace DaemonApp
         {
             var config = await Vo.LoadConfig();
             this.txtConfig.Text = config.ToJson(true);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProcess_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
