@@ -27,18 +27,25 @@ namespace DaemonApp
 
         private async void DaemonForm_Load(object sender, EventArgs e)
         {
-            var config = await Vo.LoadConfig();
-            this.txtConfig.Text = config.ToJson(true);
+            await Vo.LoadConfig();
+            this.txtConfig.Text = Vo.Config.ToJson(true);
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            var messageResult = Vo.TryStart();
+            MessageBox.Show(messageResult.Message);
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            var messageResult = Vo.TryStop();
+            MessageBox.Show(messageResult.Message);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnProcess_Click(object sender, EventArgs e)
-        {
-
+            this.txtMessage.Clear();
         }
     }
 }

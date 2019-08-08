@@ -1,28 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Common;
 
 namespace DaemonApp.ViewModel
 {
     public class DaemonFormVo
     {
-        public string FormatProcessInfos(IList<SimpleProcessInfo> infos)
-        {
-            return infos.ToJson(true);
-        }
+        public DaemonConfig Config { get; set; }
 
-        public async Task<DaemonConfig> LoadConfig()
+        public async Task LoadConfig()
         {
             var simpleConfigFile = SimpleConfigFactory.ResolveFile();
-            var simpleConfig = await simpleConfigFile.ReadFile<DaemonConfig>(null).ConfigureAwait(false);
-            if (simpleConfig == null)
-            {
-                simpleConfig = new DaemonConfig();
-                simpleConfig.ProcessInfos.Add(new SimpleProcessInfo(){ProcessName = "FooClient", ExePath = "FooClient.exe", ExeArgs = null});
-                await simpleConfigFile.SaveFile(simpleConfig).ConfigureAwait(false);
-            }
-            return simpleConfig;
+            Config = await simpleConfigFile.LoadDaemonConfig().ConfigureAwait(false);
         }
 
+        public MessageResult TryStart()
+        {
+            return MessageResult.Create(true, "ToDo");
+        }
+        public MessageResult TryStop()
+        {
+            return MessageResult.Create(true, "ToDo");
+        }
     }
 }
