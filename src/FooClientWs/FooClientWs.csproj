@@ -51,6 +51,7 @@
     <Compile Include="FooClientWs.Designer.cs">
       <DependentUpon>FooClientWs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Foo\SimpleDaemonWs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

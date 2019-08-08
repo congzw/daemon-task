@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Common;
 using DaemonApp.Libs;
+using DaemonApp.ViewModel;
 
 namespace DaemonApp
 {
@@ -19,10 +17,25 @@ namespace DaemonApp
             var simpleLogFactory = SimpleLogFactory.Resolve();
             var myLogFactory = new MyLogFactory(simpleLogFactory);
             SimpleLogFactory.Resolve = () => myLogFactory;
-
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            var isDaemonForm = IsDaemonForm();
+            if (isDaemonForm)
+            {
+                Application.Run(new DaemonForm());
+            }
+            else
+            {
+                Application.Run(new MainForm());
+            }
+        }
+
+        private static bool IsDaemonForm()
+        {
+            var simpleConfigFile = SimpleConfigFactory.ResolveFile();
+            var config = simpleConfigFile.LoadDaemonConfig().Result;
+            return config.IsEntryForm();
         }
     }
 }

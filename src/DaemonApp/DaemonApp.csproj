@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceProcess" />
@@ -47,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DaemonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaemonForm.Designer.cs">
+      <DependentUpon>DaemonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Libs\AsyncForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,9 +76,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\DaemonConfigFileExtensions.cs" />
+    <Compile Include="ViewModel\DaemonFormVo.cs" />
     <Compile Include="ViewModel\FooClientDaemon.cs" />
     <Compile Include="ViewModel\FooWsDaemon.cs" />
     <Compile Include="ViewModel\MainVo.cs" />
+    <Compile Include="ViewModel\DaemonConfig.cs" />
+    <EmbeddedResource Include="DaemonForm.resx">
+      <DependentUpon>DaemonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +97,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
