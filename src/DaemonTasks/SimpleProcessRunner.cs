@@ -122,6 +122,14 @@ namespace Common
             }
             theProcess.Dispose();
         }
+
+        #region for simple use
+        public static ISimpleProcess GetOrCreate(SimpleProcessInfo info)
+        {
+            return SimpleProcessFactory.Resolve().GetOrCreate(info);
+        }
+
+        #endregion
     }
 
     #region Factory
@@ -214,7 +222,7 @@ namespace Common
             return Task.Run(() =>
             {
                 var isRunning = Process.IsRunning();
-                Log.LogInfo("process is running? " + isRunning);
+                Log.LogInfo(string.Format("process {0} is running? => {1}", Process.Info.ProcessName, isRunning));
                 if (isRunning)
                 {
                     return MessageResult.CreateTask(true, "process is already running: " + Process.Info.ProcessName);
@@ -242,7 +250,7 @@ namespace Common
         public Task<MessageResult> TryStop(bool failThrows = false)
         {
             var isRunning = Process.IsRunning();
-            Log.LogInfo("process is running? " + isRunning);
+            Log.LogInfo(string.Format("process {0} is running? => {1}", Process.Info.ProcessName, isRunning));
             if (!isRunning)
             {
                 return MessageResult.CreateTask(true, "process is not running: " + Process.Info.ProcessName);

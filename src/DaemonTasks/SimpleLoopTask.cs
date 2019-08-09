@@ -16,8 +16,10 @@ namespace Common
         }
 
         public TimeSpan LoopSpan { get; set; }
-        public Func<Task> LoopTask { get; set; }
-        public Func<Task> AfterExitLoopTask { get; set; }
+        public Action LoopAction { get; set; }
+        public Action AfterExitLoopAction { get; set; }
+        //public Func<Task> LoopTask { get; set; }
+        //public Func<Task> AfterExitLoopTask { get; set; }
         public int MaxTryFailCount { get; set; }
 
         private ISimpleLog _log;
@@ -76,7 +78,8 @@ namespace Common
 
                 try
                 {
-                    LoopTask?.Invoke().Wait();
+                    LoopAction?.Invoke();
+                    //LoopTask?.Invoke().Wait();
                 }
                 catch (Exception e)
                 {
@@ -103,7 +106,8 @@ namespace Common
             _cts.Cancel(false);
             _cts.Dispose();
             _cts = null;
-            AfterExitLoopTask?.Invoke().Wait();
+            //AfterExitLoopTask?.Invoke().Wait();
+            AfterExitLoopAction?.Invoke();
             return MessageResult.Create(true, "Task is stopping");
         }
 

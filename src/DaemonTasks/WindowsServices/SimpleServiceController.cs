@@ -9,7 +9,6 @@ namespace Common.WindowsServices
         string ExePath { get; set; }
 
         string TryGetStatus();
-        string GetServiceState();
         MessageResult TryInstall();
         MessageResult TryUninstall();
         MessageResult TryStart();
@@ -45,11 +44,6 @@ namespace Common.WindowsServices
         public string ExePath { get; set; }
 
         public string TryGetStatus()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetServiceState()
         {
             var serviceStatus = ServiceInstaller.GetServiceState(ServiceName);
             return serviceStatus.ToString();

@@ -50,11 +50,23 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DaemonService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\DaemonService.Designer.cs">
+      <DependentUpon>DaemonService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\MockService.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\MockService.Designer.cs">
       <DependentUpon>MockService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MockLoopTaskService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\MockLoopTaskService.Designer.cs">
+      <DependentUpon>MockLoopTaskService.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
